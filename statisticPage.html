@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>统计页面</title>
+
+<!-- jQuery -->
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<!--添加bmobSDK-->
+<script src="js/bmob.js"></script>
+<script src="js/bmobSocketIo.js"></script>
+
+<!-- jgcharts 图表 -->
+<script src="js/awesomechart.js"></script>
+
+</head>
+
+<body onLoad="findTopic();">
+<script>
+			//注册bmob
+			 BmobSocketIo.initialize("673d3cf82b96d678b1fe0af49f9fab3d");
+    		 Bmob.initialize("673d3cf82b96d678b1fe0af49f9fab3d", "f0c3de989e5dd49e1a52b0649c44ca37");
+			 //样板数据库bmob
+			//BmobSocketIo.initialize("631da256ceca48ba035e329a3bd82fe1");
+			//Bmob.initialize("631da256ceca48ba035e329a3bd82fe1", "0228f6e07fbc9e2e66c4052e72813f4a");
+
+		
+</script>
+<script src="js/statisticalCtrl.js"></script>
+<script>
+var request=
+	{
+		QueryString:function(val){
+        var uri=window.location.search;
+        var re=new RegExp(""+val+"=([^&?]*)","ig");
+          return ((uri.match(re))?(uri.match(re)[0].substr(val.length+1)):null);
+          }
+	}
+	
+function init(){
+	mTopicId =parseInt(request.QueryString("topicId"));
+	mItemId =parseInt(request.QueryString("itemId"));
+	mUserId =request.QueryString("userId");
+	
+	
+	
+	}
+
+</script>
+<div>
+
+<div id="divInput"></div>
+<div id="divMe"></div>
+<div id="divTitle"></div>
+<p>==============================</p>
+<p>统计结果</p>
+
+
+<div id="divResult">
+
+
+</div>
+</div>
+</body>
+</html>
